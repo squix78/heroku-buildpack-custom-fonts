@@ -13,13 +13,17 @@ FONTS_TARGET_DIR="$BUILD_DIR/.fonts"
 FONTCONFIG_SOURCE_DIR="$(dirname $0)/../fontconfig/."
 FONTCONFIG_TARGET_DIR="$BUILD_DIR/.config/fontconfig/conf.d/"
 
-indent() {
-  sed -u 's/^/       /'
+function indent() {
+	c='s/^/       /'
+	case $(uname) in
+		Darwin) sed -l "$c";;
+		*)      sed -u "$c";;
+	esac
 }
 
 echo "-----> Installing custom fonts"
-mkdir -p "$FONTS_TARGET_DIR"
-tar -xvzf "$FONTS_FILE" -C "$FONTS_TARGET_DIR" | indent
+#mkdir -p "$FONTS_TARGET_DIR"
+#tar -xvzf "$FONTS_FILE" -C "$FONTS_TARGET_DIR" | indent
 
 echo "-----> Extracting fontconfig to $FONTCONFIG_TARGET_DIR"
 mkdir -p "$FONTCONFIG_TARGET_DIR"
