@@ -11,6 +11,8 @@ BUILD_DIR="$1"
 FONTS_FILE="$(dirname $0)/../fonts.tar.gz"
 FONTS_TARGET_DIR="$BUILD_DIR/.fonts"
 
+FONTS_CONF_FILE="$(dirname $0)/../bin/fonts.conf"
+
 indent() {
   sed -u 's/^/       /'
 }
@@ -18,6 +20,9 @@ indent() {
 echo "-----> Installing custom fonts"
 mkdir -p "$FONTS_TARGET_DIR"
 tar -xvzf "$FONTS_FILE" -C "$FONTS_TARGET_DIR" | indent
+
+echo "-----> Updating fonts.conf"
+cp "$FONTS_TARGET_DIR" "/etc/fonts/fonts.conf"
 
 echo
 exit 0
