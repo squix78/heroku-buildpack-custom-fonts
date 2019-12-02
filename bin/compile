@@ -10,7 +10,7 @@ set -e
 BUILD_DIR="$1"
 FONTS_FILE="$(dirname $0)/../fonts.tar.gz"
 FONTS_TARGET_DIR="$BUILD_DIR/.fonts"
-FONTCONFIG_SOURCE_DIR="$(dirname $0)/../fontconfig/."
+FONTCONFIG_SOURCE_DIR="$(dirname $0)/../fontconfig/"
 FONTCONFIG_TARGET_DIR="$BUILD_DIR/.fonts/"
 
 function indent() {
