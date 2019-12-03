@@ -6,7 +6,7 @@
 # bin/compile BUILD_DIR CACHE_DIR ENV_DIR
 #
 set -e
-
+FC_DEBUG=1024
 BUILD_DIR="$1"
 FONTS_FILE="$(dirname $0)/../fonts.tar.gz"
 FONTS_TARGET_DIR="$BUILD_DIR/.fonts"
